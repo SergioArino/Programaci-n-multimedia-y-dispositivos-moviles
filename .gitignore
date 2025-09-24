@@ -13,6 +13,7 @@ build/
 # === Gradle caches and logs ===
 .gradle/
 **/.gradle/
+**/gradle/
 **/build/
 !**/src/**/build/ # Permitir build en recursos si es necesario
 gradle-app.setting
