@@ -1,106 +1,32 @@
-# === Android Studio & IntelliJ IDEA ===
-.idea/
-**/*.iml
-**/*.iws
-**/*.ipr
+import java.io.File;
 
-# === Build System ===
-.gradle/
-build/
-*/build/
-!**/gradle/wrapper/gradle-wrapper.jar
+public class VerificadorRuta {
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Por favor, proporciona una ruta como argumento.");
+            return;
+        }
 
-# === Gradle caches and logs ===
-.gradle/
-**/.gradle/
-**/gradle/
-**/build/
-!**/src/**/build/ # Permitir build en recursos si es necesario
-gradle-app.setting
-gradle-wrapper.properties
+        String ruta = args[0];
+        File f = new File(ruta);
 
-# === Local configuration (do not check in SDK path, etc.) ===
-local.properties
-
-# === OS generated files ===
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# === Log and temp files ===
-**/*.tmp
-**/*.temp
-**/*.log
-**/*.swp
-**/*.swo
-**/*.bak
-**/*.orig
-**/*.rej
-**/*~.nib
-
-# === Android Studio Captures ===
-captures/
-
-# === Keystore files and sensitive info ===
-**/*.jks
-**/*.keystore
-**/*.pem
-**/*.key
-**/*.crt
-**/*.p12
-
-# === Firebase & Google Services ===
-google-services.json
-firebase-debug.log
-crashlytics-build.properties
-
-# === Proguard ===
-proguard/*.pro
-proguard-rules.pro
-**/*.pro.user
-
-# === NDK / JNI ===
-obj/
-**/*.so
-
-# === Jetpack Compose Compiler caches ===
-.kotlin_tooling/
-
-# === IntelliJ Project Files ===
-.idea/caches/
-.idea/libraries/
-.idea/modules.xml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/assetWizardSettings.xml
-.idea/dictionaries/
-.idea/navEditor.xml
-.idea/vcs.xml
-.idea/sonarlint/
-
-# === Kotlin ===
-**/*.kotlin_module
-
-# === Miscellaneous ===
-out/
-**/*.class
-
-# === Fastlane (if used) ===
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/
-fastlane/test_output/
-
-# === Code Coverage ===
-**/*.ec
-**/*.exec
-
-# === VS Code (if opened in VSCode) ===
-.vscode/
-
-# === Generated files from kapt (Kotlin Annotation Processor) ===
-build/tmp/
-build/intermediates/
-build/generated/
+        try {
+            if (!f.exists()) {
+                System.out.println("La ruta no existe.");
+            } else if (f.isDirectory()) {
+                System.out.println("Es un directorio. Contenido:");
+                String[] contenido = f.list();
+                if (contenido != null) {
+                    for (String nombre : contenido) {
+                        System.out.println("- " + nombre);
+                    }
+                }
+            } else if (f.isFile()) {
+                System.out.println("Es un fichero.");
+                System.out.println("Tamaño: " + f.length() + " bytes");
+            }
+        } catch (Exception e) {
+            System.err.println("Error al acceder a la ruta: " + e.getMessage());
+        }
+    }
+}
