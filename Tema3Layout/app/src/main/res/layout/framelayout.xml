@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:layout_gravity="top|left"
+        android:background="#FF0000">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Top Left"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="#FF0000"
+        android:layout_gravity="top|right">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Right Left"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="#FF0000"
+        android:layout_gravity="bottom|right">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Bottom Right"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="#FF0000"
+        android:layout_gravity="center|left">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="center Left"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="#FF0000"
+        android:layout_gravity="center|right">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Right center"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="#FF0000"
+        android:layout_gravity="bottom|left">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="bottom Left"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="#FF0000"
+        android:layout_gravity="top|center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Top center"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="#FF0000"
+        android:layout_gravity="bottom|center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Bottom center"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="110dp"
+        android:layout_height="115dp"
+        android:background="#FF0000"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="center"
+            android:layout_gravity="center">
+
+        </TextView>
+
+    </FrameLayout>
+
+
+</FrameLayout>
