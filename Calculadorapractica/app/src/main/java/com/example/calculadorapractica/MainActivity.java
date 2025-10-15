@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView text;
+    private double primerNumero = 0;
+    private double segundoNumero = 0;
+    private String operador = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,30 +60,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         botonigual.setOnClickListener(this);
         botonAC.setOnClickListener(this);
         botonC.setOnClickListener(this);
-
-
-
     }
-
-    private boolean endsWithOperator(String s) {
-        if (s.isEmpty()) return false;
-        char last = s.charAt(s.length() - 1);
-        return last == '+' || last == '-' || last == '*' || last == '/' || last == '.';
-    }
-
 
     @Override
     public void onClick(View view) {
         int id = view.getId();
         String actual = text.getText().toString();
 
-        if (actual.equals("0")) actual = ""; // Evita que se quede el "0" inicial
-
-
+        if (actual.equals("0")) actual = "";
 
         if (id == R.id.boton0) {
             text.setText(actual + "0");
-        }else if (id == R.id.boton1) {
+        } else if (id == R.id.boton1) {
             text.setText(actual + "1");
         } else if (id == R.id.boton2) {
             text.setText(actual + "2");
@@ -98,41 +89,95 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             text.setText(actual + "8");
         } else if (id == R.id.boton9) {
             text.setText(actual + "9");
-        } else if (id == R.id.botonsuma) {
-        if (!actual.isEmpty() && !endsWithOperator(actual)) {
-            text.setText(actual + "+");
-        }
-        } else if (id == R.id.botonrestar) {
-        if (!actual.isEmpty() && !endsWithOperator(actual)) {
-            text.setText(actual + "-");
-        }
-        } else if (id == R.id.botondividir) {
-        if (!actual.isEmpty() && !endsWithOperator(actual)) {
-            text.setText(actual + "/");
-        }
-        } else if (id == R.id.botonmultiplicar) {
-        if (!actual.isEmpty() && !endsWithOperator(actual)) {
-            text.setText(actual + "*");
-        }
         } else if (id == R.id.botoncoma) {
-            if (!endsWithOperator(actual) || actual.equals("0")) {
-                text.setText(actual + ".");
+        // Si el texto está vacío o solo tiene "0", empezamos con "0."
+        if (actual.isEmpty() || actual.equals("0")) {
+            text.setText("0.");
+        } else if (!actual.contains(".")) {
+            // Si ya hay contenido pero no contiene punto, lo añadimos
+            text.setText(actual + ".");
+        }
+    }else if (id == R.id.botonsuma) {
+            try {
+                primerNumero = Double.parseDouble(actual);
+                operador = " + ";
+                text.setText(actual + operador);
+            } catch (Exception e) {
+                text.setText("Error");
+            }
+        } else if (id == R.id.botonrestar) {
+            try {
+                primerNumero = Double.parseDouble(actual);
+                operador = " - ";
+                text.setText(actual + operador);
+            } catch (Exception e) {
+                text.setText("Error");
+            }
+        }else if (id == R.id.botonmultiplicar) {
+            try {
+                primerNumero = Double.parseDouble(actual);
+                operador = " * ";
+                text.setText(actual + operador);
+            } catch (Exception e) {
+                text.setText("Error");
+            }
+        }else if (id == R.id.botondividir) {
+            try {
+                primerNumero = Double.parseDouble(actual);
+                operador = " / ";
+                text.setText(actual + operador);
+            } catch (Exception e) {
+                text.setText("Error");
             }
         }else if (id == R.id.botonigual) {
-        if (!actual.isEmpty() && !endsWithOperator(actual)) {
-            text.setText(actual + "=");
+            try {
+                // Obtenemos el texto actual completo
+                String texto = text.getText().toString();
+
+                // Buscamos la posición del operador (sin espacios)
+                int pos = texto.indexOf(operador.trim());
+
+                // Si no se encuentra el operador, mostramos error
+                if (pos == -1) {
+                    text.setText("Error");
+                    return;
+                }
+
+                // Extraemos el segundo número desde después del operador
+                String segundoTexto = texto.substring(pos + 1).trim();
+
+                // Convertimos el segundo número
+                segundoNumero = Double.parseDouble(segundoTexto);
+
+                // Calculamos el resultado
+                double resultado = 0;
+
+                if (operador.equals(" + ")) {
+                    resultado = primerNumero + segundoNumero;
+                } else if (operador.equals(" - ")) {
+                    resultado = primerNumero - segundoNumero;
+                } else if (operador.equals(" * ")) {
+                    resultado = primerNumero * segundoNumero;
+                } else if (operador.equals(" / ")) {
+                    resultado = primerNumero / segundoNumero;
+                    }
+
+                // Mostramos el resultado
+                text.setText(String.valueOf(resultado));
+            } catch (Exception e) {
+                text.setText("Error");
             }
-        }
-         else if (id == R.id.botonAC) {
+        }else if (id == R.id.botonAC) {
+            primerNumero = 0;
+            segundoNumero = 0;
+            operador = "";
             text.setText("0");
-        }else if (id == R.id.botonC) {
-        if (!actual.isEmpty()) {
-            actual = actual.substring(0, actual.length() - 1);
-            if (actual.isEmpty()) {
-                actual = "0";
+        } else if (id == R.id.botonC) {
+            if (!actual.isEmpty()) {
+                actual = actual.substring(0, actual.length() - 1);
+                if (actual.isEmpty()) actual = "0";
+                text.setText(actual);
             }
-            text.setText(actual);
         }
-    }
     }
 }

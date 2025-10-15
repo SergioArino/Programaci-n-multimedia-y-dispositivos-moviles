@@ -135,7 +135,6 @@
         android:backgroundTint="#DC3939"
         android:text="+"
         />
-
     <Button
         android:id="@+id/botonAC"
         android:layout_width="185dp"
@@ -143,7 +142,6 @@
         android:layout_columnSpan="2"
         android:backgroundTint="#DC3939"
         android:text="AC" />
-
     <Button
         android:id="@+id/botonC"
         android:layout_width="185dp"
@@ -151,10 +149,4 @@
         android:layout_columnSpan="2"
         android:backgroundTint="#DC3939"
         android:text="C" />
-
-
-
-
-
-
 </GridLayout>
