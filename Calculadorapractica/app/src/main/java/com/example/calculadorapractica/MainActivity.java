@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String actual = text.getText().toString();
 
         if (actual.equals("0")) actual = "";
-
+//Añadimos a los todos los botones del 0 al 9 que si le damos click, se ponga ese número
         if (id == R.id.boton0) {
             text.setText(actual + "0");
         } else if (id == R.id.boton1) {
@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // Si ya hay contenido pero no contiene punto, lo añadimos
             text.setText(actual + ".");
         }
+        //Si le damos al boton sumar, el primer numero lo convierte de string a numero decimal, y lo pone junto a +
     }else if (id == R.id.botonsuma) {
             try {
                 primerNumero = Double.parseDouble(actual);
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (Exception e) {
                 text.setText("Error");
             }
+            //Si le damos al boton retar, el primer numero lo convierte de string a numero decimal, y lo pone junto a -
         } else if (id == R.id.botonrestar) {
             try {
                 primerNumero = Double.parseDouble(actual);
@@ -115,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (Exception e) {
                 text.setText("Error");
             }
+            //Si le damos al boton multiplicar, el primer numero lo convierte de string a numero decimal, y lo pone junto a *
         }else if (id == R.id.botonmultiplicar) {
             try {
                 primerNumero = Double.parseDouble(actual);
@@ -123,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (Exception e) {
                 text.setText("Error");
             }
+            //Si le damos al boton dvidir, el primer numero lo convierte de string a numero decimal, y lo pone junto a /
         }else if (id == R.id.botondividir) {
             try {
                 primerNumero = Double.parseDouble(actual);
@@ -131,12 +135,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (Exception e) {
                 text.setText("Error");
             }
+            //Si le damos al boton igual, calcula el resultado, cogiendo el primer numero en decimal, cogiendo el operador y convierte el segundo de string a numero en decimal. Para que luego muestre el rresultado
         }else if (id == R.id.botonigual) {
             try {
                 // Obtenemos el texto actual completo
                 String texto = text.getText().toString();
 
-                // Buscamos la posición del operador (sin espacios)
+                // Buscamos la posición del operador (sin espacios). Si no encuentra operador devuelve -1, por el indexOf
                 int pos = texto.indexOf(operador.trim());
 
                 // Si no se encuentra el operador, mostramos error
@@ -145,15 +150,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return;
                 }
 
-                // Extraemos el segundo número desde después del operador
+                // Extraemos el segundo número desde después del operador con el substring, que sirve para coger lo que haya despues de la posicion + 1.
                 String segundoTexto = texto.substring(pos + 1).trim();
 
-                // Convertimos el segundo número
+                // Convertimos el segundo número gracias a parseDouble
                 segundoNumero = Double.parseDouble(segundoTexto);
 
                 // Calculamos el resultado
                 double resultado = 0;
-
+                //Al darle al operador que queremos, y al poner los dos numeros, hace el calculo y lo mete en resultado, para luego mostrarlo
                 if (operador.equals(" + ")) {
                     resultado = primerNumero + segundoNumero;
                 } else if (operador.equals(" - ")) {
@@ -169,11 +174,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } catch (Exception e) {
                 text.setText("Error");
             }
+            //Al darle al boton AC, borra todo
         }else if (id == R.id.botonAC) {
             primerNumero = 0;
             segundoNumero = 0;
             operador = "";
             text.setText("0");
+            //Al darle al boton C borra lo ultimo escrito
         } else if (id == R.id.botonC) {
             if (!actual.isEmpty()) {
                 actual = actual.substring(0, actual.length() - 1);
