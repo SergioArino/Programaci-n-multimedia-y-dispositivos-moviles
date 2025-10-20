@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.grid);
-
+    //Creacion de identificadores para cada boton, tambien para el texto donde se va a ver todo
         text = findViewById(R.id.texto);
 
         Button boton0 = findViewById(R.id.boton0);
@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button botonigual = findViewById(R.id.botonigual);
         Button botonAC = findViewById(R.id.botonAC);
         Button botonC = findViewById(R.id.botonC);
+
+        //Enlace de los botones para el OnClick
 
         boton0.setOnClickListener(this);
         boton1.setOnClickListener(this);
