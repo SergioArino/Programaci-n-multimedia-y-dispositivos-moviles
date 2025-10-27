@@ -17,5 +17,12 @@
         android:layout_height="52dp"
         android:hint="Número"
         android:imeOptions="actionNext"
-        android:inputType="number" />
+        android:inputType="numberPassword" />
+
+    <AutoCompleteTextView
+        android:id="@+id/miTexto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:completionHint="Elige una opción"
+        android:completionThreshold="4" />
 </LinearLayout>
