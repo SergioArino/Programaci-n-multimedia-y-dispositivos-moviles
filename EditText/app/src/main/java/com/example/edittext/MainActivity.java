@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.linear);
         Spinner miSpinner = (Spinner) findViewById(R.id.miSpinner);
         CheckBox checkbox1 = (CheckBox) findViewById(R.id.checkbox1);
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         String[] valores = {"Star wars", "otro", "tercero"};
         miSpinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, valores));
         String[] opciones = {"opcion1", "opcion2", "opcion3", "opcion4", "opcion5"};
