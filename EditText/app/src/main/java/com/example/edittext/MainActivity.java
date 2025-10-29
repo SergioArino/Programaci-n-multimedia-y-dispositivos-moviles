@@ -5,9 +5,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.linear);
         Spinner miSpinner = (Spinner) findViewById(R.id.miSpinner);
+        CheckBox checkbox1 = (CheckBox) findViewById(R.id.checkbox1);
         String[] valores = {"Star wars", "otro", "tercero"};
         miSpinner.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, valores));
         String[] opciones = {"opcion1", "opcion2", "opcion3", "opcion4", "opcion5"};
@@ -37,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 System.out.println("No has seleccionado nada");
+            }
+        });
+        checkbox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(@NonNull CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    checkbox1.setText("checked");
+                } else{
+                    checkbox1.setText("no checked");
+                }
             }
         });
     }
