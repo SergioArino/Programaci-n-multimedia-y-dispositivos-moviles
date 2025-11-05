@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/linear">
     <EditText
         android:id="@+id/etText"
         android:layout_width="410dp"
@@ -36,30 +38,98 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/checkbox1"
-        android:text="Opcion 1"
+        android:text="Opcion"
         />
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioGroup">
+        android:id="@+id/radiogroup">
 
         <RadioButton
-            android:id="@+id/radioButton1"
+            android:id="@+id/boton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Opcion 1"
-            />
+            android:text="Opción1">
+        </RadioButton>
+
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/boton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Opcion 2"
-            />
+            android:text="Opción2">
+        </RadioButton>
+
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/boton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Opcion 3"
-            />
+            android:text="Opción3">
+        </RadioButton>
+
     </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:text="¿Qué opción has seleccionado?"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview"
+        />
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch1"
+        android:text="Encender/Apagar"
+        />
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview2"
+        />
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Ratingbar"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:rating="2.5"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textview3"
+        />
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Progressbar"
+        style="?android:attr/progressBarStyleLarge"
+        android:indeterminate="true"
+        />
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Progressbar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        android:progress="0"
+        />
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Progressbar3"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="true"
+        />
 </LinearLayout>
