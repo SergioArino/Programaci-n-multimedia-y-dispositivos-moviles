@@ -1,5 +1,6 @@
 package com.example.gridview;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -39,5 +40,30 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(elemento);
             }
         });
+    }
+
+    public class Datos {
+        private String texto1;
+        private String texto2;
+
+        public Datos(String text1, String text2) {
+            texto1 = text1;
+            texto2 = text2;
+        }
+
+        public String getTexto1() {
+            return texto1;
+        }
+
+        public String getTexto2() {
+            return texto2;
+        }
+    }
+    public class Adaptador extends ArrayAdapter<Datos>{
+        private Datos[] datos;
+        public Adaptador(Context context, Datos[] datos){
+            super(context, R.layout.elementos, datos);
+            this.datos= datos;
+        }
     }
 }
