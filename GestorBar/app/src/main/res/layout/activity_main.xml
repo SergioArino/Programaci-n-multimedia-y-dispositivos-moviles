@@ -66,6 +66,7 @@
         android:id="@+id/buttonCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#00BCD4"
         android:text="@string/calculate_total" />
 
     <TextView
