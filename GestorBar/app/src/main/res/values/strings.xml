@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">GestorBar</string>
+    <string name="hint_waiter_name">Nombre del camarero</string>
+    <string name="hint_total_bill">Total de la cuenta</string>
+    <string name="include_tip">¿Incluir propina?</string>
+    <string name="tip_label">Propina: </string>
+    <string name="cash">Efectivo</string>
+    <string name="card">Tarjeta</string>
+    <string name="calculate_total">Calcular Total</string>
+    <string name="error_empty_total">Debes ingresar el total de la cuenta.</string>
+    <string name="error_zero_total">El total debe ser mayor que cero.</string>
+    <string name="error_invalid_format">Formato inválido. Ingresa solo números.</string>
+    <string name="total_amount">Total: </string>
+    <string name="payment_method">Método de pago: </string>
+    <string name="payment_not_selected">Método de pago: No seleccionado</string>
+    <string name="service_rating">Calificación del servicio:  estrellas</string>
+    <string name="waiter_served">Atendido por: </string>
+    <string name="waiter_unspecified">Camarero no especificado</string>
+</resources>
+

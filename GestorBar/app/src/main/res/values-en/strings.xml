@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">BarManager</string>
+    <string name="hint_waiter_name">Waiters name</string>
+    <string name="hint_total_bill">Total bill</string>
+    <string name="include_tip">Include tip?</string>
+    <string name="tip_label">Tip: </string>
+    <string name="cash">Cash</string>
+    <string name="card">Card</string>
+    <string name="calculate_total">Calculate Total</string>
+    <string name="error_empty_total">You must enter the total bill.</string>
+    <string name="error_zero_total">The total must be greater than zero.</string>
+    <string name="error_invalid_format">Invalid format. Enter numbers only.</string>
+    <string name="total_amount">Total: </string>
+    <string name="payment_method">Payment method: </string>
+    <string name="payment_not_selected">Payment method: Not selected</string>
+    <string name="service_rating">Service rating:  stars</string>
+    <string name="waiter_served">Served by: </string>
+    <string name="waiter_unspecified">Waiter not specified</string>
+</resources>
+
