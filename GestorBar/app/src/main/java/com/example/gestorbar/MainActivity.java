@@ -48,8 +48,13 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 textViewTipPercent.setText("Propina: " + progress + "%");
             }
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+
         });
 
         buttonCalculate.setOnClickListener(new View.OnClickListener() {
