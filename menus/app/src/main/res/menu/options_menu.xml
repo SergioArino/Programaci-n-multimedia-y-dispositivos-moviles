@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_ajustes"
+        android:title="settings"
+        />
+
+    <item
+        android:id="@+id/action_help"
+        android:title="help"
+        />
+    <item
+        android:id="@+id/exit"
+        android:title="exit"
+        />
+
+    <item
+        android:id="@+id/action_refrescar"
+        android:title="refrescar"
+        />
+
+    <item
+        android:id="@+id/action_mas"
+        android:title="Más opciones">
+        <menu>
+            <item
+                android:id="@+id/action_info"
+                android:title="Info"
+                />
+            <item
+                android:id="@+id/action_acercade"
+                android:title="Acerca de"
+                />
+
+
+
+        </menu>
+    </item>
+</menu>
