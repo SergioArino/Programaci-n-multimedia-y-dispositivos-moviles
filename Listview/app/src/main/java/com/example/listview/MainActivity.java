@@ -1,42 +1,64 @@
 package com.example.listview;
 
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ListView listView;
+    private ArrayList<String> listItems;
+    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.linear);
+        setContentView(R.layout.activity_main);
 
-        List<String> data = Arrays.asList("Elemento 1", "Elemento 2", "Elemeto 3", "Elemnto 4");
+        listView = findViewById(R.id.listview);
+        listItems = new ArrayList<>();
+        listItems.add("Elemento 1");
+        listItems.add("Elemento 2");
+        listItems.add("Elemento 3");
 
-        ListView listView = findViewById(R.id.listview);
-        TextView textView = findViewById(R.id.textview);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItems);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String elemento = (String) parent.getItemAtPosition(position);
-                textView.setText(elemento);
-            }
-        });
+        registerForContextMenu(listView);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.context_menu, menu);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int position = info.position;
+        String selectedItem = listItems.get(position);
+
+        if (item.getItemId() == R.id.action_edit) {
+            Toast.makeText( this, "Editar: " + selectedItem, Toast.LENGTH_SHORT).show();
+            return true;
+        } else if (item.getItemId() == R.id.action_delete) {
+            listItems.remove(position);
+            adapter.notifyDataSetChanged();
+            Toast.makeText( this, "Elemento eliminado", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return super.onContextItemSelected(item);
     }
 }
