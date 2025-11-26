@@ -2,6 +2,7 @@ package com.example.listadecompra;
 
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private EditText editName, editQuantity;
     private Spinner spinnerImages;
-    private int[] imageRes = {R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_background};
+    private int[] imageRes = {R.drawable.lejiaconejo, R.drawable.tortillaespania, R.drawable.gelatina};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,
-                new String[]{"Imagen 1", "Imagen 2"});
+                new String[]{"lejia", "tortilla", "gelatina"});
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerImages.setAdapter(spinnerAdapter);
 
@@ -66,14 +67,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        menu.add(0, v.getId(), 0, "Añadir");
-        menu.add(0, v.getId(), 0, "Eliminar");
+        MenuInflater Inflater = getMenuInflater();
+        Inflater.inflate(R.menu.menu_contextual, menu);
+
     }
 
-    /**
-     * Método que se ejecuta cuando el usuario selecciona una opción del menú contextual.
-     * Detecta si se eligió "Eliminar" o "Añadir".
-     */
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         // Obtenemos información sobre el elemento de la lista que fue pulsado
@@ -85,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             adapter.notifyDataSetChanged();
         } else if (item.getTitle().equals("Añadir")) {
             // Añade un nuevo elemento por defecto
-            shoppingList.add(new Item("Nuevo", 1, R.drawable.ic_launcher_foreground));
+            shoppingList.add(new Item("Nuevo", 1, R.drawable.lejiaconejo));
             adapter.notifyDataSetChanged();
         }
         return true;

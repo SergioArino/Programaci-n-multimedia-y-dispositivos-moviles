@@ -14,25 +14,21 @@ public class ShoppingListAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<Item> items;
 
-    // Constructor: recibe el contexto y la lista de artículos
     public ShoppingListAdapter(Context context, ArrayList<Item> items) {
         this.context = context;
         this.items = items;
     }
 
-    // Devuelve el número de elementos en la lista
     @Override
     public int getCount() {
         return items.size();
     }
 
-    // Devuelve el objeto en una posición concreta
     @Override
     public Object getItem(int position) {
         return items.get(position);
     }
 
-    // Devuelve el ID del elemento (aquí usamos la posición como ID)
     @Override
     public long getItemId(int position) {
         return position;
