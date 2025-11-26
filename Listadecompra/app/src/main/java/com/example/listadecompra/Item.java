@@ -4,13 +4,13 @@ public class Item {
     private String nombre;
     private int cantidad;
     private int imagenResId;
-
     public Item(String nombre, int cantidad, int imagenResId) {
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.imagenResId = imagenResId;
     }
 
+    // Métodos getter para acceder a los atributos
     public String getNombre() {
         return nombre;
     }

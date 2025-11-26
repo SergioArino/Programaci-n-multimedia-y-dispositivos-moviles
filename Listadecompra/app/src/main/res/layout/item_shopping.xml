@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:padding="8dp"
@@ -20,21 +19,21 @@
 
         <TextView
             android:id="@+id/itemName"
-            android:text="Artículo"
+            android:text="@string/item_name"
             android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/itemQuantity"
-            android:text="Cantidad"
+            android:text="@string/item_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <Button
         android:id="@+id/btnDelete"
-        android:text="Eliminar"
+        android:text="@string/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>
