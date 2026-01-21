@@ -3,13 +3,18 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FF0000">
 
     <Button
         android:id="@+id/btnAddEvento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Añadir evento" />
+        android:text="Añadir evento"
+        android:backgroundTint="#FFFFFF"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        />
 
     <ListView
         android:id="@+id/listaEventos"

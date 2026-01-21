@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void showAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("Título del Diálogo");
-        builder.setMessage("Este es el mensaje del diálogo.");
+        builder.setTitle("Aceptar notificaciones");
+        builder.setMessage("Deseas permitir notificaciones.");
 
         builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override

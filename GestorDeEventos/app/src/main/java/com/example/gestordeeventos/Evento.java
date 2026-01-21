@@ -6,14 +6,12 @@ public class Evento {
     private String fecha;
     private String hora;
 
-    // Constructor
     public Evento(String nombre, String fecha, String hora) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.hora = hora;
     }
 
-    // Getter y Setter del nombre
     public String getNombre() {
         return nombre;
     }
@@ -22,7 +20,6 @@ public class Evento {
         this.nombre = nombre;
     }
 
-    // Getter y Setter de la fecha
     public String getFecha() {
         return fecha;
     }
@@ -31,7 +28,6 @@ public class Evento {
         this.fecha = fecha;
     }
 
-    // Getter y Setter de la hora
     public String getHora() {
         return hora;
     }
@@ -40,4 +36,3 @@ public class Evento {
         this.hora = hora;
     }
 }
-
