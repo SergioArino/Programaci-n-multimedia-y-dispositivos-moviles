@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Añadimos los fragments al adaptador
         adapter.addFragment(new FragmentoFormulario(), "Formulario");
-        adapter.addFragment(new Fragmento2(), "pestaña 2");
-        adapter.addFragment(new Fragmento3(), "pestaña 3");
+        adapter.addFragment(new Fragmento2(), "Pestaña 2");
+        adapter.addFragment(new Fragmento3(), "Pestaña 3");
 
         // Asignamos el adaptador al ViewPager
         viewPager.setAdapter(adapter);
